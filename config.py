@@ -11,13 +11,13 @@ else:
 	minutes = int(sys.argv[1])
 
 crontab = os.popen('crontab -l').read()
-cwd = os.getcwd()
+ABS_PATH = os.path.dirname(os.path.abspath(__file__))
 output = ''
 for line in crontab.split('\n')[:-1]:
-	if cwd not in line:
+	if ABS_PATH not in line:
 		output += line + '\n'
 
-output += '*/' + str(minutes) + ' * * * * cd ' + cwd + ' && ./background-randomizer.py' + '\n'
+output += '*/' + str(minutes) + ' * * * * ' + os.path.join(ABS_PATH, 'background-randomizer.py\n')
 
 open('temp', 'w').write(output)
 
