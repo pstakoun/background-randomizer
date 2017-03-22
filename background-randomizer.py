@@ -29,7 +29,7 @@ while flag:
 			urllib.request.urlretrieve(result[0].get('src'), os.path.join(ABS_PATH, 'background-temp.jpg'))
 			im = Image.open(os.path.join(ABS_PATH, 'background-temp.jpg'))
 			res = [int(x) for x in os.popen('xrandr | grep "\*" | cut -d" " -f4').read().split('\n')[0].split('x')]
-			if im.width > res[0]/2 and im.height > res[1]/2:
+			if im.width > res[0]/2 and im.height > res[1]/2 and im.width > im.height:
 				recent.append(source.geturl())
 				if len(recent) > MAX_RECENT:
 					del recent[0]
