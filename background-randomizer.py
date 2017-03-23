@@ -36,4 +36,3 @@ while flag:
 				flag = False
 
 os.rename(os.path.join(ABS_PATH, 'background-temp.jpg'), os.path.join(ABS_PATH, 'background.jpg'));
-os.system('gsettings set org.gnome.desktop.background picture-uri file://' + os.path.join(ABS_PATH, 'background.jpg'))

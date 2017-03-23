@@ -24,3 +24,5 @@ open('temp', 'w').write(output)
 os.system('crontab temp')
 
 os.remove('temp')
+
+os.system('gsettings set org.gnome.desktop.background picture-uri file://' + os.path.join(ABS_PATH, 'background.jpg'))
