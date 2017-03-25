@@ -23,7 +23,10 @@ while flag:
 
 		open(os.path.join(ABS_PATH, 'recent.txt'), 'w').write('\n'.join(recent))
 
-		result = BeautifulSoup(source.read()).find_all('img', class_='preview')
+		result = ''
+
+		if 'reddit' in source.geturl():
+			result = BeautifulSoup(source.read()).find_all('img', class_='preview')
 
 		if len(result) > 0:
 			urllib.request.urlretrieve(result[0].get('src'), os.path.join(ABS_PATH, 'background-temp.jpg'))
